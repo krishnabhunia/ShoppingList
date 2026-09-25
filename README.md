@@ -55,4 +55,3 @@ There's no backend yet, so "sharing" sends a text snapshot of the list
 (via WhatsApp, clipboard, or the system share sheet) rather than a live
 link others can edit in real time. That would need a server — happy to
 plan that out next if you want live collaborative lists.
-"# ShoppingList" 

@@ -1,5 +1,6 @@
 package com.krishna.shoppinglist.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -7,7 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -157,12 +158,10 @@ fun ListDetailScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(vertical = 6.dp)
-                                    .then(
-                                        Modifier.clickableAddSuggestion {
-                                            onAddItem(name, category)
-                                            query = ""
-                                        }
-                                    ),
+                                    .clickable {
+                                        onAddItem(name, category)
+                                        query = ""
+                                    },
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
                                 Text(name)
@@ -219,6 +218,3 @@ fun ListDetailScreen(
         )
     }
 }
-
-private fun Modifier.clickableAddSuggestion(onClick: () -> Unit): Modifier =
-    this.then(androidx.compose.foundation.clickable(onClick = onClick))
